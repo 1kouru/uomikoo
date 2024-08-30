@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uomikoo</title>
+    
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="abouts.html">Обо мне</a>
+        <a href="social.html">Соц. сети</a>
+        <a href="photos.html">Фотографии</a>
+    </div>
+    
+<section class="form">
+    <div class="form-container">
+        <div class="form-title">Заполните анкету</div>
+
+        <div class="form-group photo-upload">
+            <label for="photo" class="custom-file-upload">
+                Выбрать фото
+            </label>
+            <input type="file" id="photo" name="photo" class="form-control" accept="image/*">
+            <div id="photo-preview" class="photo-preview"></div>
+        </div>
+
+        <form id="form">
+            <div class="form-group">
+                <input type="name" id="name" name="name" class="form-control" placeholder="Имя">
+            </div>
+            <div class="form-group">
+                <input type="inst" id="inst" name="inst" class="form-control" placeholder="Инстаграм">
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Номер телефона">
+            </div>
+            <div class="form-group">
+                <input type="about" id="about" name="about" class="form-control" placeholder="О себе">
+            </div>
+            <div class="form-group">
+            <input type="freetime" id="freetime" name="freetime" class="form-control" placeholder="Как проводишь свободное время?">
+            </div>
+            <div class="form-group">
+            <input type="alco" id="alco" name="alco" class="form-control" placeholder="Как относишься к алкоголю?">
+             </div>
+             <div class="form-group">
+            <input type="party" id="party" name="party" class="party" placeholder="Как тусуешься?">
+             </div>
+            <div class="form-group">
+            <input type="sport" id="sport" name="sport" class="form-control" placeholder="Любимый вид спорта?">
+             </div>
+            <div class="form-group">
+            <input type="cringe" id="cringe" name="cringe" class="form-control" placeholder="Секс на первом свидании кринж?">
+            </div>
+    
+
+            <button type="submit">Отправить</button>
+
+            <p class="succes disp">Заявка отправлена!</p>
+        </form>
+    </div>
+</section>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const TOKEN = '7465341480:AAHPQD-mDhipwgQVtcBwQaGmxVFapJANWZI';
+        const CHAT_ID = '-1002186494915';
+        const URL_API_PHOTO = `https://api.telegram.org/bot${TOKEN}/sendPhoto`;
+
+        document.getElementById('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const inst = document.getElementById('inst').value;
+            const phone = document.getElementById('phone').value;
+            const freetime = document.getElementById('freetime').value;
+            const alco = document.getElementById('alco').value;
+            const party = document.getElementById('party').value;
+            const sport = document.getElementById('sport').value;
+            const cringe = document.getElementById('cringe').value;
+            const about = document.getElementById('about').value;
+            const photo = document.getElementById('photo').files[0];
+
+            const caption = `<b>😀Имя:</b> ${name}
+<b>📩Инстаграм:</b> ${inst}
+<b>📱Номер телефона:</b> ${phone}
+<b>🕔В свободное время:</b> ${freetime}
+<b>🍾К алкоголю относится:</b> ${alco}
+<b>🎉Как тусуется:</b> ${party}
+<b>🏃Любимый вид спорта:</b> ${sport}
+<b>🔞Секс на первом свидании: </b> ${cringe}
+<b>✏О себе:</b> ${about}`;
+
+
+            // Отправка фото с текстом
+            if (photo) {
+                let formData = new FormData();
+                formData.append('chat_id', CHAT_ID);
+                formData.append('photo', photo);
+                formData.append('caption', caption);
+                formData.append('parse_mode', 'html');
+
+                axios.post(URL_API_PHOTO, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                .then(response => {
+                    console.log('Photo with caption sent: ', response);
+                    document.querySelector('.succes').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error sending photo with caption: ', error);
+                });
+            } else {
+                alert("Пожалуйста, выберите фото перед отправкой.");
+            }
+        });
+
+        // Показ выбранного фото
+        document.getElementById('photo').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const photoPreview = document.getElementById('photo-preview');
+                    photoPreview.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; max-height: 300px; border-radius: 5px;">`;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+    <script src="js/order.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

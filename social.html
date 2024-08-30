@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('5.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            position: relative;
+            font-family: 'New Amsterdam', sans-serif; /* Применяем шрифт New Amsterdam */
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #1d1d1d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .home-button:hover {
+            background-color: #555;
+        }
+
+        .social-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .social-button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 15px 0;
+            font-size: 18px;
+            color: white;
+            background-color: #3b5998;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-button.instagram {
+            background-color: #E4405F;
+        }
+
+        .social-button.tiktok {
+            background-color: #010101;
+        }
+
+        .social-button.telegram {
+            background-color: #0088cc;
+        }
+
+        .social-button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="home.html" class="home-button">Домой</a>
+
+    <div class="social-container">
+        <a href="https://www.instagram.com/uonichka/" class="social-button instagram">Instagram</a>
+        <a href="https://www.tiktok.com/@uonichka" class="social-button tiktok">TikTok</a>
+        <a href="https://t.me/Uonichka" class="social-button telegram">Telegram</a>
+    </div>
+
+</body>
+</html>

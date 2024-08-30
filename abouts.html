@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомство с Александрой</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'New Amsterdam', sans-serif; /* Применяем шрифт New Amsterdam */
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(3.jpg);
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35; /* Прозрачность фона */
+            z-index: -1;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #1d1d1d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #414141; /* Цвет при наведении */
+        }
+
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-box {
+            flex-shrink: 0;
+            width: 300px;
+            height: 420px;
+            background-image: url(3.jpg); /* Путь к вашему изображению */
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px; /* Закругление углов */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-right: 20px;
+        }
+
+        .text-box {
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        .text-box p {
+            font-size: 1.3em;
+            color: #333;
+        }
+
+        /* Адаптация для мобильных устройств */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column; /* Разместить элементы вертикально */
+                padding: 10px;
+            }
+
+            .image-box {
+                width: 100%; /* Занимает всю ширину */
+                height: auto; /* Автоматическая высота */
+                margin-right: 0;
+                margin-bottom: 20px; /* Добавить отступ снизу */
+            }
+
+            .text-box {
+                max-width: 100%; /* Занимает всю ширину */
+                padding: 10px;
+                font-size: 1.2em; /* Уменьшить размер шрифта для текста */
+            }
+
+            .home-button {
+                font-size: 0.9em; /* Уменьшить размер кнопки на мобильных устройствах */
+                padding: 8px 16px;
+            }
+        }
+
+        /* Еще больше уменьшение текста для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .text-box p {
+                font-size: 0.5em; /* Ещё большее уменьшение текста */
+                padding: 6px 12px;
+            }
+
+            .home-button {
+                font-size: 0.8m; /* Уменьшение кнопки */
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-image"></div>
+
+    <a href="home.html" class="home-button">Домой</a>
+
+    <div class="content">
+        <div class="image-box"></div> <!-- Блок для изображения -->
+        <div class="text-box">
+            <p>Привет, меня зовут Александра! Мне нравится классический стиль одежды, обожаю морепродукты, рис и корейскую кухню. Я много работаю и, как результат, хорошо зарабатываю, что позволяет мне наслаждаться тем, что я люблю, и вести активный образ жизни. Мой будущий мужчина должен не только разделять мои интересы, но и быть успешным в своей карьере. Я хочу, чтобы он зарабатывал не меньше меня, имел стабильный и достойный доход, что бы позволяло нам строить совместное будущее без материальных ограничений. Машина для меня - это символ независимости и комфорта, поэтому я надеюсь, что у него она тоже будет, как отражение его успешности и практичности.</p>
+        </div>
+    </div>
+
+</body>
+</html>
